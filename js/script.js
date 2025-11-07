@@ -1,27 +1,27 @@
 const RandomNum = [];
-const RandomNumUnivoci = [];
+
 for (let i = 0; i < 5; i++) {
-    let curRandomNum = Math.floor(Math.random() * 10) + 1;
-    RandomNum.push(curRandomNum);
-}
+    let newNum = Math.floor(Math.random() * 10) + 1;
 
 
-for (let i = 0; i < RandomNum.length; i++) {
-    let curElem = RandomNum[i];
+    let trovato = false;
 
-    let esiste = false;
-
-    for (j = 0; j < RandomNumUnivoci.length; j++) {
-        if (RandomNumUnivoci[j] === curElem) {
-            esiste = true;
+    for (let j = 0; j <= RandomNum.length; j++) {
+        if (RandomNum[j] === newNum) {
+            trovato = true;
         }
     }
+    while (trovato === true) {
+        newNum = Math.floor(Math.random() * 10) + 1;
+        trovato = false;
 
-
-    if (esiste === false) {
-        RandomNumUnivoci.push(curElem);
+        for (let j = 0; j <= RandomNum.length; j++) {
+            if (RandomNum[j] === newNum) {
+                trovato = true;
+            }
+        }
     }
+    RandomNum.push(newNum);
 }
-console.log(RandomNumUnivoci);
-
+console.log(RandomNum);
 
